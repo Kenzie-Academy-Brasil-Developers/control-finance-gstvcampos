@@ -137,3 +137,19 @@
         margin: 56px auto;
     }
 }
+
+@keyframes animateModal {
+    0% {
+      transform: translateY(-50%);
+      opacity: 0;
+    }
+  
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .modal__controller{
+    animation: animateModal 1s;
+  }
