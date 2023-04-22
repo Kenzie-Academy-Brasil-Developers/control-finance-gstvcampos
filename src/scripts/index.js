@@ -68,6 +68,16 @@ const createCard = (object) => {
 
   btn.addEventListener('click', () => {
 
+    
+    const found = insertedValues.find((element) => +element.id == +btn.id) 
+
+
+    let foundIndex = insertedValues.findIndex((element)=> element.id == found)
+    insertedValues.splice(foundIndex,1)
+
+    li.remove()
+
+    sumValues(insertedValues)
 
 
   })
