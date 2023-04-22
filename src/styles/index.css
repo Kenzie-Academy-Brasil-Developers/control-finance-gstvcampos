@@ -105,9 +105,12 @@
 .span {
     background-color: var(--color-grey-4);
     color: var(--color-grey-2);
+    font-family: 'Inter', sans-serif;
     width: 68px;
     height: 26px;
     border-radius: var(--radius-2);
+    font-weight: var(--font-weight-2);
+    font-size: 12px;
 
     display: flex;
     align-items: center;

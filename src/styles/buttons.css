@@ -6,6 +6,7 @@ button {
     font-weight: var(--font-weight-1);
     border-radius: var(--radius-1);
     border: none;
+    cursor: pointer;
 }
 
 .primary__button {
@@ -64,19 +65,15 @@ button {
     height: 100%;
 }
 
-.button {
+.delete__button {
     border: 1.5px solid var(--color-grey-5);
-    border-radius: var(--radius-1);
-    height: 32px;
-    color: var(--color-grey-2);
+    background-color: var(--fixed-white);
+    border-radius: var(--radius-2);
 
-    font-family: 'Inter', sans-serif;
+    padding: 0 0.5rem;
+    opacity: 50%;
+}
 
-    height: 2rem;
-    font-size: .875rem;
-    font-weight: var(--font-weight-1);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.delete__button:hover {
+    opacity: 100%;
 }
