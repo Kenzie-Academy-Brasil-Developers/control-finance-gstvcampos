@@ -108,8 +108,8 @@ function sumValues(array) {
 
   const sumItem = document.querySelector(".sum__item");
 
-  sumItem.innerText = "";
-  sumItem.innerText = `R$ ${(totalEntradas + totalSaidas).toFixed(2)}`;
+  sumItem.innerText = ""
+  sumItem.innerText = `R$ ${(totalEntradas + totalSaidas).toFixed(2)}`
 }
 
 function filter(array){
