@@ -33,6 +33,7 @@ const handleRegisterValue = (array) => {
   array.push(newValue)
   newValue = {}
   render(insertedValues)
+  sumValues(insertedValues)
 
   modal.close()
   })
@@ -67,7 +68,7 @@ const createCard = (object) => {
 
   btn.addEventListener('click', () => {
 
-    
+
 
   })
 
@@ -81,28 +82,66 @@ const createCard = (object) => {
   return li
 }
 
-const handleDeleteClient = (array) => {
-  const buttons = document.querySelectorAll('.delete__button')
+function sumValues(array) {
+  const entradas = array.filter((element) => element.valuesCategory == "Entrada");
+
+  let totalEntradas = entradas.reduce((acumulador, valorAtual) => {
+    return acumulador + valorAtual.value;
+  }, 0);
+
+  const saidas = array.filter((element) => element.valuesCategory == "Saída");
+
+  let totalSaidas = saidas.reduce((acumulador, valorAtual) => {
+    return acumulador + (valorAtual.value * -1);
+  }, 0);
 
 
-  buttons.forEach(button => {
-    button.addEventListener('click', () => {
-      console.log('asdasdas')
+  const sumItem = document.querySelector(".sum__item");
 
-    })
+  sumItem.innerText = "";
+  sumItem.innerText = `R$ ${(totalEntradas + totalSaidas).toFixed(2)}`;
+}
+
+function filter(array){
+  const allButton = document.querySelector('.all__button')
+
+  allButton.addEventListener('click', ()=> {
+
+    render(array)
+
+  })
+
+
+  const entryButton = document.querySelector('.entry__button')
+  entryButton.addEventListener('click', () =>{
+
+    const entryValues = insertedValues.filter((valor) => valor.valuesCategory == 'Entrada');
+
+    const resumeList = document.querySelector(".resume__list")
+
+    resumeList.innerText = ""
+
+    render(entryValues)
+    
+  })
+
+  const exitButton = document.querySelector('.exit__button')
+  exitButton.addEventListener('click', () =>{
+
+    const exitValues = insertedValues.filter((valor) => valor.valuesCategory == 'Saída');
+
+    const resumeList = document.querySelector(".resume__list")
+
+    resumeList.innerText = ""
+
+    render(exitValues)
+    
   })
 }
 
-const sumValues = () => {
-  const sumItem = document.querySelector('.sum__item')
 
-
-}
-
-
-
-
-handleDeleteClient()
+filter(insertedValues)
 handleRegisterValue(insertedValues)
 render(insertedValues)
 handleModal()
+sumValues(insertedValues)
